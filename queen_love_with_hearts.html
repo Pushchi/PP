@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Queen 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #fff0f5, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #ff1493;
+      font-size: 2.7em;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.3em;
+      background-color: #e91e63;
+      border: none;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 30px;
+      animation: buttonAnimation 2s ease-in-out;
+    }
+
+    .message {
+      margin-top: 40px;
+      font-size: 1.2em;
+      color: #e91e63;
+      display: none;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .gif-box img {
+      width: 200px;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+
+    .teddy {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, #fff 0%, #f8c8dc 60%);
+      border-radius: 50%;
+      animation: sparkle 2s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: scale(0);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes buttonAnimation {
+      0% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2em;
+      color: #ff1493;
+      top: -50px;
+      left: 50%;
+      animation: heartDrop 2s infinite;
+      z-index: 1;
+    }
+
+    @keyframes heartDrop {
+      0% { top: -50px; opacity: 1; }
+      50% { top: 50%; opacity: 0.8; }
+      100% { top: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To My Queen 💖</h1>
+
+  <button onclick="showMessage()">Click Me, My Queen 💝</button>
+
+  <div class="gif-box">
+    <img src="https://media.tenor.com/xUO-0rfx_8MAAAAC/love-couple.gif" alt="Cute Couple" />
+  </div>
+
+  <div class="message" id="loveMessage">
+    <p>Good Morning </p>
+    <p>Majhi Kaju Katli 😘</p>
+    <p>I am always with you forever 💫</p>
+    <p>I will make you feel special every single day! 🥰</p>
+    <p><strong>I love you so much Prachi ❤️</strong></p>
+  </div>
+
+  <div class="teddy">
+    <img src="https://media.tenor.com/54kNFMvOmSIAAAAi/teddy-love.gif" alt="Teddy Love" width="150" />
+  </div>
+
+  <!-- Hearts -->
+  <div class="heart">❤️</div>
+  <div class="heart" style="animation-delay: 0.5s;">❤️</div>
+  <div class="heart" style="animation-delay: 1s;">❤️</div>
+  <div class="heart" style="animation-delay: 1.5s;">❤️</div>
+
+  <!-- Sparkles container -->
+  <div id="sparkles"></div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("loveMessage").style.display = "block";
+      document.querySelector(".teddy").style.display = "block";
+
+      const hearts = document.querySelectorAll('.heart');
+      hearts.forEach((heart, index) => {
+        heart.style.animationDelay = `${index * 0.5}s`;
+        heart.style.display = 'block';
+      });
+
+      // Generate sparkles
+      for (let i = 0; i < 40; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.animationDuration = `${1 + Math.random() * 2}s`;
+        sparkle.style.animationDelay = `${Math.random() * 3}s`;
+        document.body.appendChild(sparkle);
+      }
+    }
+  </script>
+</body>
+</html>
